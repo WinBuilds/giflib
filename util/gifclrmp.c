@@ -192,7 +192,7 @@ int main(int argc, char **argv)
 		}
 		else	/* we need to mung pixels intices */
 		{
-		    int	i;
+		    unsigned int	i;
 		    register GifPixelType *cp;
 
 		    GifPixelType *Line
@@ -222,6 +222,8 @@ int main(int argc, char **argv)
 		/* pass through extension records */
 		if (DGifGetExtension(GifFileIn, &ExtCode, &Extension) == GIF_ERROR)
 		    QuitGifError(GifFileIn, GifFileOut);
+		if (Extension == NULL)
+		    break;
 		if (EGifPutExtensionLeader(GifFileOut, ExtCode) == GIF_ERROR)
 		    QuitGifError(GifFileIn, GifFileOut);
 		if (EGifPutExtensionBlock(GifFileOut, 
@@ -268,7 +270,8 @@ int main(int argc, char **argv)
 ******************************************************************************/
 static ColorMapObject *ModifyColorMap(ColorMapObject *ColorMap)
 {
-    int i, Dummy, Red, Green, Blue;
+    unsigned int i;
+    int Dummy, Red, Green, Blue;
 
     if (SaveFlag) {
 	/* Save this color map to ColorFile: */

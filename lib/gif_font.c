@@ -158,11 +158,10 @@ GifDrawText8x8(SavedImage *Image,
 	    const int color)
 {
     int i, j;
-    int base;
     const char *cp;
 
     for (i = 0; i < GIF_FONT_HEIGHT; i++) {
-        base = Image->ImageDesc.Width * (y + i) + x;
+        int base = Image->ImageDesc.Width * (y + i) + x;
 
         for (cp = legend; *cp; cp++)
             for (j = 0; j < GIF_FONT_WIDTH; j++) {
@@ -237,16 +236,17 @@ GifDrawBoxedText8x8(SavedImage *Image,
 		      border + TextWidth * GIF_FONT_WIDTH + border - 1,
 		      border + LineCount * GIF_FONT_HEIGHT + border - 1, bg);
 	(void)strcpy(dup, (char *)legend);
-	cp = strtok((char *)dup, "\r\n");
+	char *lasts;
+	cp = strtok_r(dup, "\r\n", &lasts);
 	do {
-	    int leadspace = 0;
+	    size_t leadspace = 0;
 
 	    if (cp[0] == '\t')
 		leadspace = (TextWidth - strlen(++cp)) / 2;
 
-	    GifDrawText8x8(Image, x + border + (leadspace * GIF_FONT_WIDTH),
+	    GifDrawText8x8(Image, x + border + ((int)leadspace * GIF_FONT_WIDTH),
 			   y + border + (GIF_FONT_HEIGHT * i++), cp, fg);
-	    cp = strtok((char *)NULL, "\r\n");
+	    cp = strtok_r(NULL, "\r\n", &lasts);
 	} while (cp);
 	(void)free((void *)dup);
 

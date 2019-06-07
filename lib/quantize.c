@@ -58,7 +58,7 @@ static int SortCmpRtn(const void *Entry1, const void *Entry2);
 int
 GifQuantizeBuffer(unsigned int Width,
                unsigned int Height,
-               int *ColorMapSize,
+               unsigned int *ColorMapSize,
                GifByteType * RedInput,
                GifByteType * GreenInput,
                GifByteType * BlueInput,
@@ -66,7 +66,8 @@ GifQuantizeBuffer(unsigned int Width,
                GifColorType * OutputColorMap) {
 
     unsigned int Index, NumOfEntries;
-    int i, j, MaxRGBError[3];
+    unsigned int i; 
+    int j, MaxRGBError[3];
     unsigned int NewColorMapSize;
     long Red, Green, Blue;
     NewColorMapType NewColorSubdiv[256];
@@ -149,9 +150,9 @@ GifQuantizeBuffer(unsigned int Width,
                 Blue += QuantizedColor->RGB[2];
                 QuantizedColor = QuantizedColor->Pnext;
             }
-            OutputColorMap[i].Red = (Red << (8 - BITS_PER_PRIM_COLOR)) / j;
-            OutputColorMap[i].Green = (Green << (8 - BITS_PER_PRIM_COLOR)) / j;
-            OutputColorMap[i].Blue = (Blue << (8 - BITS_PER_PRIM_COLOR)) / j;
+            OutputColorMap[i].Red = (GifByteType)(Red << (8 - BITS_PER_PRIM_COLOR)) / j;
+            OutputColorMap[i].Green = (GifByteType)(Green << (8 - BITS_PER_PRIM_COLOR)) / j;
+            OutputColorMap[i].Blue = (GifByteType)(Blue << (8 - BITS_PER_PRIM_COLOR)) / j;
         }
     }
 
@@ -198,14 +199,14 @@ SubdivColorMap(NewColorMapType * NewColorSubdiv,
                unsigned int ColorMapSize,
                unsigned int *NewColorMapSize) {
 
-    int MaxSize;
-    unsigned int i, j, Index = 0, NumEntries, MinColor, MaxColor;
-    long Sum, Count;
+    unsigned int i, j, Index = 0;
     QuantizedColorType *QuantizedColor, **SortArray;
 
     while (ColorMapSize > *NewColorMapSize) {
         /* Find candidate for subdivision: */
-        MaxSize = -1;
+	long Sum, Count;
+        int MaxSize = -1;
+	unsigned int NumEntries, MinColor, MaxColor;
         for (i = 0; i < *NewColorMapSize; i++) {
             for (j = 0; j < 3; j++) {
                 if ((((int)NewColorSubdiv[i].RGBWidth[j]) > MaxSize) &&

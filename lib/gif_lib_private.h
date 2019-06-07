@@ -10,6 +10,10 @@ gif_lib_private.h - internal giflib routines and structures
 #include "gif_lib.h"
 #include "gif_hash.h"
 
+#ifndef SIZE_MAX
+    #define SIZE_MAX     UINTPTR_MAX
+#endif
+
 #define EXTENSION_INTRODUCER      0x21
 #define DESCRIPTOR_INTRODUCER     0x2c
 #define TERMINATOR_INTRODUCER     0x3b
@@ -42,7 +46,7 @@ typedef struct GifFilePrivateType {
       StackPtr,    /* For character stack (see below). */
       CrntShiftState;    /* Number of bits in CrntShiftDWord. */
     unsigned long CrntShiftDWord;   /* For bytes decomposition into codes. */
-    unsigned long PixelCount;   /* Number of pixels in image. */
+    size_t PixelCount;   /* Number of pixels in image. */
     FILE *File;    /* File as stream. */
     InputFunc Read;     /* function to read gif input (TVT) */
     OutputFunc Write;   /* function to write gif output (MRB) */
@@ -53,6 +57,11 @@ typedef struct GifFilePrivateType {
     GifHashTableType *HashTable;
     bool gif89;
 } GifFilePrivateType;
+
+#ifndef HAVE_REALLOCARRAY
+extern void *openbsd_reallocarray(void *optr, size_t nmemb, size_t size);
+#define reallocarray openbsd_reallocarray
+#endif
 
 #endif /* _GIF_LIB_PRIVATE_H */
 

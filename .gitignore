@@ -1,2 +1,9 @@
 /*.host.mk
 /*.target.mk
+.vs
+*.url
+*.lnk
+Debug
+Release
+Win32
+x64
