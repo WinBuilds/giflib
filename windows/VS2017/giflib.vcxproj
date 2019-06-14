@@ -123,6 +123,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>
+mkdir "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"
+copy "..\..\lib\gif_lib.h" "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -139,6 +144,11 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>
+mkdir "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"
+copy "..\..\lib\gif_lib.h" "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -159,6 +169,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>
+mkdir "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"
+copy "..\..\lib\gif_lib.h" "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -179,6 +194,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PostBuildEvent>
+      <Command>
+mkdir "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"
+copy "..\..\lib\gif_lib.h" "$(WINBUILDS_ROOT)build_msvc15_$(Platform)\$(Configuration)\include\libgif\"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
