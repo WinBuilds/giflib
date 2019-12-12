@@ -176,12 +176,12 @@
     <ClCompile Include="..\..\util\qprintf.c" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="giflib.vcxproj">
-      <Project>{423f08bc-57cd-4930-a5c5-882fbed8d96c}</Project>
-    </ProjectReference>
+    <ClInclude Include="..\..\util\getarg.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\util\getarg.h" />
+    <ProjectReference Include="GifDll.vcxproj">
+      <Project>{86f67dfe-9e41-4cbf-ba98-d90da5823934}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

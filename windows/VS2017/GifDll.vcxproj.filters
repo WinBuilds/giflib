@@ -33,10 +33,10 @@
     <ClCompile Include="..\..\lib\gifalloc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\lib\quantize.c">
+    <ClCompile Include="..\..\lib\openbsd-reallocarray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\lib\openbsd-reallocarray.c">
+    <ClCompile Include="..\..\lib\quantize.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

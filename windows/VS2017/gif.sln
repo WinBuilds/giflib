@@ -25,6 +25,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "giftool", "giftool.vcxproj"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gifclrmp", "gifclrmp.vcxproj", "{AF38715A-A3B8-4F20-840B-B8D9FC776798}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GifDll", "GifDll.vcxproj", "{86F67DFE-9E41-4CBF-BA98-D90DA5823934}"
+	ProjectSection(ProjectDependencies) = postProject
+		{423F08BC-57CD-4930-A5C5-882FBED8D96C} = {423F08BC-57CD-4930-A5C5-882FBED8D96C}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -113,6 +118,14 @@ Global
 		{AF38715A-A3B8-4F20-840B-B8D9FC776798}.Release|Win32.Build.0 = Release|Win32
 		{AF38715A-A3B8-4F20-840B-B8D9FC776798}.Release|x64.ActiveCfg = Release|x64
 		{AF38715A-A3B8-4F20-840B-B8D9FC776798}.Release|x64.Build.0 = Release|x64
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Debug|Win32.ActiveCfg = Debug|Win32
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Debug|Win32.Build.0 = Debug|Win32
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Debug|x64.ActiveCfg = Debug|x64
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Debug|x64.Build.0 = Debug|x64
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Release|Win32.ActiveCfg = Release|Win32
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Release|Win32.Build.0 = Release|Win32
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Release|x64.ActiveCfg = Release|x64
+		{86F67DFE-9E41-4CBF-BA98-D90DA5823934}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
